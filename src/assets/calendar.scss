@@ -1,0 +1,186 @@
+:root {
+  --tdp-header-arrow-color: #CDCDCD;
+  --tdp-header-arrow-color-hover: #909090;
+
+  --tdp-current-color: #315BC9;
+  --tdp-current-color-hover: #315BC9;
+
+  --tdp-selected-background: #315BC9;
+  --tdp-selected-background-hover: #315BC9;
+  --tdp-selected-color: #fff;
+  --tdp-selected-color-hover: #fff;
+
+  --tdp-day-color: #333333;
+  --tdp-day-color-hover: #333333;
+  --tdp-day-border-radius: 8px;
+  --tdp-day-border: 0px;
+  --tdp-day-border-hover: 0px;
+  --tdp-day-border-color: #333333;
+  --tdp-day-border-color-hover: #333333;
+
+  --tdp-weekday-color: #333333;
+  --tdp-clickable-color: #333333;
+}
+
+.t-datepicker-calendar {
+  padding: 16px;
+  width: 320px;
+  background: #fff;
+  border-radius: 4px;
+  position: absolute;
+
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      svg {
+        transition: all;
+        transition-duration: var(--tdp-transition-duration);
+        color: var(--tdp-header-arrow-color);
+        &:hover {
+          color: var(--tdp-header-arrow-color-hover);
+        }
+        &.rotate-180 {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__clickable {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--tdp-clickable-color);
+  }
+
+  /* WEEKDAYS + DAYS */
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: var(--tdp-weekday-color);
+  }
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+  }
+  &__day {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--tdp-day-border-radius);
+    transition: all;
+    transition-duration: var(--tdp-transition-duration);
+    color: var(--tdp-day-color);
+    border: var(--tdp-day-border) solid var(--tdp-day-border-color);
+    &:hover {
+      color: var(--tdp-day-color-hover);
+      background-color: #f0f0f0;
+      border: var(--tdp-day-border-hover) solid var(--tdp-day-border-color-hover);
+    }
+  }
+  &__today {
+    font-weight: bold;
+    color: var(--tdp-current-color);
+    &:hover {
+      color: var(--tdp-current-color-hover);
+    }
+  }
+  &__other-month {
+    opacity: 0.5;
+  }
+  &__selected {
+    background: var(--tdp-selected-background);
+    color: var(--tdp-selected-color) !important;
+    &:hover {
+      background: var(--tdp-selected-background-hover);
+      color: var(--tdp-selected-color-hover) !important;
+    }
+  }
+  &__disabled-day {
+    color: #999;
+    cursor: not-allowed;
+    background-color: #fafafa;
+  }
+  &__disabled-day:hover {
+    background-color: #fafafa;
+  }
+
+  /* in-range подсветка */
+  &__in-range {
+    background-color: #b3e5fc;
+    color: #000;
+  }
+  &__first-in-range {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: #2196f3 !important;
+    color: #fff !important;
+  }
+  &__last-in-range {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: #2196f3 !important;
+    color: #fff !important;
+  }
+
+  /* MONTHS-GRID */
+  &__months-grid {
+    //display: grid;
+    //grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 8px;
+    text-align: center;
+  }
+  &__month-cell {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-weight: 500;
+    min-width: 50px;
+  }
+  &__month-cell:hover {
+    background-color: #f0f0f0;
+  }
+  &__today-month {
+    color: var(--tdp-current-color);
+  }
+
+  /* YEARS-GRID — 5 столбцов, только вертикальный скролл */
+  &__years-grid {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+  &__year-cell {
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    font-weight: 500;
+  }
+  &__year-cell:hover {
+    background-color: #f0f0f0;
+  }
+  &__today-year {
+    color: var(--tdp-current-color);
+  }
+}

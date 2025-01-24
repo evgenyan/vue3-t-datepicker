@@ -1,0 +1,120 @@
+:root {
+  // Скорость анимаций
+  --tdp-transition-duration: 0.5s;
+
+  // Инпут
+  --tdp-input-background: #fff; // цвет фона
+  --tdp-input-border-color: #E0E0E0; // цвет обводки
+  --tdp-input-border-size: 1px; // размер обводки
+  --tdp-input-border-radius: 8px; // скругление обводки
+  --tdp-input-padding: 8px; // внутренний отстув
+  --tdp-input-color: #333333; // цвет текста
+  --tdp-input-font-size: 18px; // размер текста
+  --tdp-input-border-color-hover: #909090; // цвет обводки при наведении
+
+  //Disabled инпут
+  --tdp-input-disabled-opacity: 0.5;
+
+  // Кнопка очистки
+  --tdp-clear-button-color: #E0E0E0; // цвет
+  --tdp-clear-button-color-hover: #909090; // цвет при наведении
+  --tdp-clear-button-size: 12px; // размер
+
+  // Иконка
+  --tdp-icon-color: #909090; // цвет
+  --tdp-icon-size: 16px; // размер
+  --tdp-icon-margin-right: 8px; // отступ справа
+}
+.t-datepicker {
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  /* Обертка инпута */
+  &__input-wrapper {
+    padding: var(--tdp-input-padding);
+    border: var(--tdp-input-border-size) solid var(--tdp-input-border-color);
+    border-radius: var(--tdp-input-border-radius);
+    background-color: var(--tdp-input-background);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all;
+    transition-duration: var(--tdp-transition-duration);
+    cursor: text;
+
+    &:hover {
+      border: var(--tdp-input-border-size) solid var(--tdp-input-border-color-hover);
+    }
+
+    input {
+      border: 0;
+      width: 100%;
+      font-size: var(--tdp-input-font-size);
+      background: transparent;
+      cursor: text;
+    }
+  }
+
+  /* Кнопка очистки поля */
+  &__clear-btn {
+    button {
+      background: none;
+      padding: 0;
+      margin: 0;
+      border: none;
+      svg {
+        margin-top: 2px;
+        width: var(--tdp-clear-button-size);
+        height:  var(--tdp-clear-button-size);
+        color: var(--tdp-clear-button-color);
+        cursor: pointer;
+        transition: all;
+        transition-duration: var(--tdp-transition-duration);
+        &:hover {
+          color: var(--tdp-clear-button-color-hover);
+        }
+      }
+    }
+  }
+
+  /* Иконка */
+  &__icon {
+    margin-right: var(--tdp-icon-margin-right);
+    transition: all;
+    transition-duration: var(--tdp-transition-duration);
+    svg {
+      color: var(--tdp-icon-color);
+      margin-top: 2px;
+      width: var(--tdp-icon-size);
+      height: var(--tdp-icon-size);
+    }
+  }
+
+  /* Disabled пикер */
+  &__disabled {
+    opacity: var(--tdp-input-disabled-opacity);
+  }
+
+  /* Анимация по умолчанию для переходов */
+  .v-enter-active,
+  .v-leave-active {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Начальное состояние (при входе) и конечное состояние (при выходе) */
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  /* Конечное состояние (при входе) и начальное (при выходе) */
+  .v-enter-to,
+  .v-leave-from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
