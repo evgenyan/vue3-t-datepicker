@@ -1,10 +1,16 @@
-# tdatepicker
+# vue3-t-datepicker - Datepicker для VUE3
 
-This template should help get you started developing with Vue 3 in Vite.
+<img src="https://raw.githubusercontent.com/evgenyan/vue3-t-datepicker/refs/heads/main/screenshots/tdp1.png" width="200"/><img src="https://raw.githubusercontent.com/evgenyan/vue3-t-datepicker/refs/heads/main/screenshots/tdp2.png" width="200"/><img src="https://raw.githubusercontent.com/evgenyan/vue3-t-datepicker/refs/heads/main/screenshots/tdp3.png" width="200"/>
 
-## Recommended IDE Setup
+Простой и гибкий Datepicker компонент для VUE3.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**(For English language scroll down)**
+
+## Возможности
+
+1. Выбор одного дня
+2. Выбор промежутка
+3. Выбор месяца и года
 
 ## Type Support for `.vue` Imports in TS
 
