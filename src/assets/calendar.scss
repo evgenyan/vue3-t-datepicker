@@ -1,15 +1,29 @@
 :root {
+  // Дропдаун календаря
+  --tdp-calendar-background: #fff;
+  --tdp-calendar-border-radius: 4px;
+  --tdp-calendar-min-width: 250px;
+  --tdp-calendar-padding: 8px;
+
+  // Стрелки влево вправо
   --tdp-header-arrow-color: #CDCDCD;
   --tdp-header-arrow-color-hover: #909090;
 
+  // Текущий день
   --tdp-current-color: #315BC9;
   --tdp-current-color-hover: #315BC9;
+  --tdp-current-font-weight: bold;
 
+  // Выбранный день
   --tdp-selected-background: #315BC9;
   --tdp-selected-background-hover: #315BC9;
   --tdp-selected-color: #fff;
   --tdp-selected-color-hover: #fff;
 
+  // Дни
+  --tdp-days-gap: 4px;
+
+  // День
   --tdp-day-color: #333333;
   --tdp-day-color-hover: #333333;
   --tdp-day-border-radius: 8px;
@@ -17,16 +31,84 @@
   --tdp-day-border-hover: 0px;
   --tdp-day-border-color: #333333;
   --tdp-day-border-color-hover: #333333;
+  --tdp-day-background-color: none;
+  --tdp-day-background-color-hover: #f0f0f0;
+  --tdp-day-padding: 8px;
 
+  // День недели
   --tdp-weekday-color: #333333;
+
+  // Месяц - год в шапке
   --tdp-clickable-color: #333333;
+  --tdp-clickable-font-weight: 600;
+
+  // Другой месяц
+  --tdp-other-day-opacity: 0.5;
+
+  // Выключенный день
+  --tdp-disabled-day-color: #999;
+  --tdp-disabled-day-background: #fafafa;
+  --tdp-disabled-day-opacity: 1;
+
+
+  // День, входящий в промежуток
+  --tdp-in-range-background: #C3D4FF;
+  --tdp-in-range-color: #333333;
+
+  // Первый в промежутке
+  --tdp-first-in-range-border-radius: 8px;
+  --tdp-first-in-range-background: #315BC9;
+  --tdp-first-in-range-color: #fff;
+  --tdp-first-in-range-background-hover: #f0f0f0;
+  --tdp-first-in-range-color-hover: #333333;
+
+  // Последний в промежутке
+  --tdp-last-in-range-border-radius: 8px;
+  --tdp-last-in-range-background: #315BC9;
+  --tdp-last-in-range-color: #fff;
+  --tdp-last-in-range-background-hover: #f0f0f0;
+  --tdp-last-in-range-color-hover: #333333;
+
+  // Сетка месяцев
+  --tdp-months-grid-gap: 8px;
+
+  // Ячейка месяца
+  --tdp-month-cell-color: #333333;
+  --tpd-month-cell-padding: 8px;
+  --tdp-month-cell-border-radius: 4px;
+  --tdp-month-cell-font-weight: 500;
+  --tdp-month-cell-font-size: 14px;
+  --tdp-month-cell-background-color: none;
+  --tdp-month-cell-color-hover: #333333;
+  --tdp-month-cell-background-color-hover: #f0f0f0;
+  --tdp-month-cell-today-month-background: #315BC9;
+  --tdp-month-cell-today-month-color: #fff;
+  --tdp-month-cell-today-month-background-hover: #f0f0f0;
+  --tdp-month-cell-today-month-color-hover: #333333;
+
+  // Сетка годов
+  --tdp-years-grid-gap: 8px;
+
+  // Ячейка года
+  --tdp-year-cell-color: #333333;
+  --tpd-year-cell-padding: 4px;
+  --tdp-year-cell-border-radius: 4px;
+  --tdp-year-cell-font-weight: 500;
+  --tdp-year-cell-font-size: 14px;
+  --tdp-year-cell-background-color: none;
+  --tdp-year-cell-color-hover: #333333;
+  --tdp-year-cell-background-color-hover: #f0f0f0;
+  --tdp-year-cell-today-year-background: #315BC9;
+  --tdp-year-cell-today-year-color: #fff;
+  --tdp-year-cell-today-year-background-hover: #f0f0f0;
+  --tdp-year-cell-today-year-color-hover: #333333;
 }
 
 .t-datepicker-calendar {
-  padding: 16px;
-  width: 320px;
-  background: #fff;
-  border-radius: 4px;
+  padding: var(--tdp-calendar-padding);
+  min-width: var(--tdp-calendar-min-width);
+  background: var(--tdp-calendar-background);
+  border-radius: var(--tdp-calendar-border-radius);
   position: absolute;
 
 
@@ -57,7 +139,7 @@
 
   &__clickable {
     cursor: pointer;
-    font-weight: 600;
+    font-weight: var(--tdp-clickable-font-weight);
     color: var(--tdp-clickable-color);
   }
 
@@ -68,36 +150,38 @@
     text-align: center;
     font-weight: bold;
     color: var(--tdp-weekday-color);
+    margin-bottom: 8px;
   }
   &__days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
+    gap: var(--tdp-days-gap);
     text-align: center;
   }
   &__day {
     cursor: pointer;
-    padding: 8px;
+    padding: var(--tdp-day-padding);
     border-radius: var(--tdp-day-border-radius);
     transition: all;
     transition-duration: var(--tdp-transition-duration);
     color: var(--tdp-day-color);
     border: var(--tdp-day-border) solid var(--tdp-day-border-color);
+    background-color: var(--tdp-day-background-color);
     &:hover {
       color: var(--tdp-day-color-hover);
-      background-color: #f0f0f0;
+      background-color: var(--tdp-day-background-color-hover);
       border: var(--tdp-day-border-hover) solid var(--tdp-day-border-color-hover);
     }
   }
   &__today {
-    font-weight: bold;
+    font-weight: var(--tdp-current-font-weight);
     color: var(--tdp-current-color);
     &:hover {
       color: var(--tdp-current-color-hover);
     }
   }
   &__other-month {
-    opacity: 0.5;
+    opacity: var(--tdp-other-day-opacity);
   }
   &__selected {
     background: var(--tdp-selected-background);
@@ -108,56 +192,70 @@
     }
   }
   &__disabled-day {
-    color: #999;
+    color: var(--tdp-disabled-day-color);
     cursor: not-allowed;
-    background-color: #fafafa;
+    background-color: var(--tdp-disabled-day-background);
+    opacity: var(--tdp-disabled-day-opacity);
   }
   &__disabled-day:hover {
-    background-color: #fafafa;
+    background-color: var(--tdp-disabled-day-background);
   }
 
   /* in-range подсветка */
   &__in-range {
-    background-color: #b3e5fc;
-    color: #000;
+    background-color: var(--tdp-in-range-background);
+    color: var(--tdp-in-range-color);
   }
   &__first-in-range {
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    background-color: #2196f3 !important;
-    color: #fff !important;
+    opacity: 1 !important;
+    border-radius: var(--tdp-first-in-range-border-radius);
+    background-color: var(--tdp-first-in-range-background) !important;
+    color: var(--tdp-first-in-range-color) !important;
+    &:hover {
+      background-color: var(--tdp-first-in-range-background-hover) !important;
+      color: var(--tdp-first-in-range-color-hover) !important;
+    }
   }
   &__last-in-range {
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    background-color: #2196f3 !important;
-    color: #fff !important;
+    opacity: 1 !important;
+    border-radius: var(--tdp-last-in-range-border-radius);
+    background-color: var(--tdp-last-in-range-background) !important;
+    color: var(--tdp-last-in-range-color) !important;
+    &:hover {
+      background-color: var(--tdp-last-in-range-background-hover) !important;
+      color: var(--tdp-last-in-range-color-hover) !important;
+    }
   }
 
   /* MONTHS-GRID */
   &__months-grid {
-    //display: grid;
-    //grid-template-columns: repeat(4, 1fr);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--tdp-months-grid-gap);
     text-align: center;
   }
   &__month-cell {
-    padding: 8px;
+    color: var(--tdp-month-cell-color);
+    padding: var(--tpd-month-cell-padding);
     cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s;
-    font-weight: 500;
-    min-width: 50px;
+    border-radius: var(--tdp-month-cell-border-radius);
+    transition: all var(--tdp-transition-duration);
+    font-weight: var(--tdp-month-cell-font-weight);
+    font-size: var(--tdp-month-cell-font-size);
+    background-color: var(--tdp-month-cell-background-color);
+    &:hover {
+      color: var(--tdp-month-cell-color-hover);
+      background-color: var(--tdp-month-cell-background-color-hover);
+    }
   }
-  &__month-cell:hover {
-    background-color: #f0f0f0;
-  }
+
   &__today-month {
-    color: var(--tdp-current-color);
+    background-color: var(--tdp-month-cell-today-month-background) !important;
+    color: var(--tdp-month-cell-today-month-color) !important;
+    &:hover {
+      color: var(--tdp-month-cell-today-month-color-hover) !important;
+      background-color: var(--tdp-month-cell-today-month-background-hover) !important;
+    }
   }
 
   /* YEARS-GRID — 5 столбцов, только вертикальный скролл */
@@ -167,20 +265,30 @@
     overflow-x: hidden;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    gap: var(--tdp-years-grid-gap);
     text-align: center;
   }
   &__year-cell {
-    padding: 4px;
+    color: var(--tdp-year-cell-color);
+    padding: var(--tpd-year-cell-padding);
     cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s;
-    font-weight: 500;
-  }
-  &__year-cell:hover {
-    background-color: #f0f0f0;
+    border-radius: var(--tdp-year-cell-border-radius);
+    transition: background var(--tdp-transition-duration);
+    font-weight: var(--tdp-year-cell-font-weight);
+    font-size: var(--tdp-year-cell-font-size);
+    background-color: var(--tdp-year-cell-background-color);
+
+    &:hover {
+      color: var(--tdp-year-cell-color-hover);
+      background-color: var(--tdp-year-cell-background-color-hover);
+    }
   }
   &__today-year {
-    color: var(--tdp-current-color);
+    background-color: var(--tdp-year-cell-today-year-background) !important;
+    color: var(--tdp-year-cell-today-year-color) !important;
+    &:hover {
+      color: var(--tdp-year-cell-today-year-color-hover) !important;
+      background-color: var(--tdp-year-cell-today-year-background-hover) !important;
+    }
   }
 }

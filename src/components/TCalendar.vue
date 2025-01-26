@@ -697,7 +697,7 @@ const calendarStyles = computed(()=>{
         <span
           v-for="w in weekdays"
           :key="w"
-          class="weekday"
+          class="t-datepicker-calendar__weekday"
         >
           {{ w }}
         </span>

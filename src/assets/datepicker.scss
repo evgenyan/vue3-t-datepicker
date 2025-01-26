@@ -1,6 +1,7 @@
 :root {
   // Скорость анимаций
   --tdp-transition-duration: 0.5s;
+  --tdp-font-family: "Helvetica", "Arial", sans-serif;
 
   // Инпут
   --tdp-input-background: #fff; // цвет фона
@@ -25,7 +26,9 @@
   --tdp-icon-size: 16px; // размер
   --tdp-icon-margin-right: 8px; // отступ справа
 }
+
 .t-datepicker {
+  font-family: var(--tdp-font-family);
   display: flex;
   position: relative;
   width: 100%;

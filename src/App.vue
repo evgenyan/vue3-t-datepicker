@@ -11,7 +11,6 @@ const date = ref<string|null>(null)
         v-model="date"
         output-format="dd.MM.yyyy"
         text-input-format="dd.MM.yyyy"
-        :max-width="250"
         picker-type="day"
         range
         clearable
