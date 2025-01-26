@@ -6,7 +6,7 @@ const date = ref<string|null>(null)
 
 <template>
   <main>
-    <div style="padding: 10px">
+    <div style="padding: 10px;max-width: 350px; margin-left: auto; margin-right: auto; margin-top: 100px">
       <TDatepicker
         v-model="date"
         output-format="dd.MM.yyyy"
