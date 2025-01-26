@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { computed, ref, onMounted, onUnmounted, nextTick, type ComponentPublicInstance } from 'vue'
 import TCalendar from "@/components/TCalendar.vue";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
 import vClickOutside from "@/utils/vClickOutside";
 import "@/assets/datepicker.scss";
-import type TDatepicker from '@/components/TDatepicker.vue'
 import type { TDatepickerProps } from '@/types'
 import TDatepickerClearBtn from '@/components/TDatepickerClearBtn.vue'
 import TDatepickerIcon from '@/components/icons/TDatepickerIcon.vue'
@@ -28,7 +27,7 @@ const model = defineModel<string | string[] | null>();
 const showCalendar = ref(false);
 const calendarStyles = ref<{ top: string; left: string }>({ top: "0px", left: "0px" });
 const calendarRef = ref<InstanceType<typeof TCalendar> | null>(null); // Ссылка на компонент TCalendar
-const datepickerRef = ref<InstanceType<typeof TDatepicker> | null>(null); // Ссылка на компонент TCalendar
+const datepickerRef = ref<ComponentPublicInstance | null>(null)
 const inputRef = ref<HTMLElement | null>(null); // Ссылка на input
 
 const displayValue = computed(() => {
