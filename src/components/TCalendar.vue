@@ -2,9 +2,9 @@
 import { computed, ref, watch, nextTick } from "vue";
 import { format, parse, isSameDay, isAfter } from "date-fns";
 import { ru } from "date-fns/locale";
-import { type CheckMonthSelection, type DayItem, type MonthItem, type TCalendarProps, type YearItem } from '@/types'
+import { type CheckMonthSelection, type DayItem, type MonthItem, type TCalendarProps, type YearItem } from '../types'
 import "@/assets/calendar.scss"
-import TDatepickerArrowIcon from '@/components/icons/TDatepickerArrowIcon.vue'
+import TDatepickerArrowIcon from '../components/icons/TDatepickerArrowIcon.vue'
 
 /**
  * Пропсы, получаемые из родителя

@@ -1,0 +1,38 @@
+{
+  // Можно расширять базовый tsconfig, если он у вас настроен "на всё подряд",
+  // но тогда нужно следить, чтобы там не было references, или они отключены.
+  "extends": "./tsconfig.json",
+
+  "compilerOptions": {
+    // Включаем генерацию d.ts:
+    "declaration": true,
+    // Генерировать только d.ts без .js:
+    "emitDeclarationOnly": true,
+
+    // Куда складывать d.ts-файлы:
+    "declarationDir": "dist/types",
+    // Если вдруг собираете .js через tsc (не обязательно, если делает Vite):
+    "outDir": "dist/lib",
+
+    // Для Vue SFC часто нужны эти флаги:
+    "esModuleInterop": true,
+    "skipLibCheck": false
+  },
+
+  // Берём только исходники библиотеки — например, компоненты и их вспомогательные .ts-файлы
+  // Если "src" у вас содержит еще и демо-приложение (App.vue, main.ts),
+  // лучше исключить их. Например:
+  "include": [
+    "src/components/**/*.vue",
+    "src/index.ts",
+    "src/types/index.ts",
+    // ... доп. .ts-файлы библиотеки
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*",
+    // Исключаем то, что не хотим в d.ts
+    "src/main.ts",         // Если это демо
+    "src/App.vue",         // Если это демо
+  ]
+}

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted, nextTick, type ComponentPublicInstance } from 'vue'
-import TCalendar from "@/components/TCalendar.vue";
+import TCalendar from "../components/TCalendar.vue";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
-import vClickOutside from "@/utils/vClickOutside";
-import "@/assets/datepicker.scss";
-import type { TDatepickerProps } from '@/types'
-import TDatepickerClearBtn from '@/components/TDatepickerClearBtn.vue'
-import TDatepickerIcon from '@/components/icons/TDatepickerIcon.vue'
+import vClickOutside from "../utils/vClickOutside";
+import "../assets/datepicker.scss";
+import type { TDatepickerProps } from '../types'
+import TDatepickerClearBtn from '../components/TDatepickerClearBtn.vue'
+import TDatepickerIcon from '../components/icons/TDatepickerIcon.vue'
 
 const {
   textInputFormat = "dd.MM.yyyy",

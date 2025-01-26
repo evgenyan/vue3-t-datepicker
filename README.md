@@ -19,3 +19,19 @@ npm i vue3-t-datepicker
 ```
 
 ## Использование
+```vue
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import TDatepicker from 'vue3-t-datepicker'; // Импортируйте компонент
+import "vue3-t-datepicker/dist/vue3-t-datepicker.css" // Импортируйте стили
+
+const app = createApp(App);
+
+app.component('TDatepicker', TDatepicker);
+// или
+// import { install as TDatepickerPlugin } from 't-datepicker';
+// app.use(TDatepickerPlugin);
+
+app.mount('#app');
+```

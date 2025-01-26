@@ -5,7 +5,14 @@
   "description": "Simple and customisable Vue3 Datepicker component",
   "license": "MIT",
   "homepage": "https://github.com/evgenyan/vue3-t-datepicker/tree/main",
-  "keywords": ["vue", "vue3", "datepicker", "calendar", "date", "vue3-component"],
+  "keywords": [
+    "vue",
+    "vue3",
+    "datepicker",
+    "calendar",
+    "date",
+    "vue3-component"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/evgenyan/vue3-t-datepicker.git"
@@ -15,7 +22,8 @@
   "module": "dist/t-datepicker.es.js",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check build:types \"build-only {@}\" --",
+    "build:types": "vue-tsc --project tsconfig.build.json",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
@@ -48,6 +56,6 @@
     "typescript": "~5.6.3",
     "vite": "^6.0.5",
     "vite-plugin-vue-devtools": "^7.6.8",
-    "vue-tsc": "^2.1.10"
+    "vue-tsc": "^2.2.0"
   }
 }
