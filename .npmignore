@@ -1,2 +1,15 @@
 screenshots
 .vscode
+.idea
+src
+public
+.editorconfig
+.prettierrc.json
+env.d.ts
+eslint.config.js
+index.html
+tsconfig.build.json
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+vite.config.ts
