@@ -1,7 +1,7 @@
 {
   "name": "vue3-t-datepicker",
   "author": "Evgeny Anisimov (anv.pro)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple and customisable Vue3 Datepicker component",
   "license": "MIT",
   "homepage": "https://github.com/evgenyan/vue3-t-datepicker/tree/main",
