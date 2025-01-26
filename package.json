@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git://github.com/evgenyan/vue3-t-datepicker.git"
   },
-  "private": true,
   "type": "module",
   "main": "dist/t-datepicker.umd.js",
   "module": "dist/t-datepicker.es.js",
